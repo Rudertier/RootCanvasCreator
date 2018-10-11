@@ -46,8 +46,11 @@ cnvs->Draw();
 
 ![alt text](example/gaus.png "Example Plot")
 
-
-![alt text](http://alice-figure.web.cern.ch/system/files/figures/mknichel/2018-May-29-compareMeanPt_interpol.gif)
+# Published figures
+The ALICE Collaboration: *"Transverse momentum spectra and nuclear modification factors of charged particles in Xe-Xe collisions at
+ $\sqrt{s_{\rm NN}}$ = 5.44 TeV"*, arXiv: [1805.04399](https://arxiv.org/abs/1805.04399)
+ 
+![alt text](http://alice-figure.web.cern.ch/system/files/figures/mknichel/2018-May-29-compareMeanPt_interpol.gif "arXiv:1805.04399")
 
 
 
