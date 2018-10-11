@@ -168,7 +168,7 @@ TCanvas *makeCanvas(TObjArray *histArray, TObjArray *ratioArray = 0,const char *
       lowMargin = (0.12 * 1.414213562/2)/(padFraction);
     }
   }
-    
+
 
   TRandom *random = new TRandom(histArray->Hash());
   Double_t xMin;
@@ -203,7 +203,7 @@ TCanvas *makeCanvas(TObjArray *histArray, TObjArray *ratioArray = 0,const char *
 	Double_t ratio0Maximum = ratio0->GetBinContent(ratio0->GetMaximumBin());
 	Double_t ratio0Minimum = 1;
 	for(Int_t ii = 0; ii < ratio0->GetNbinsX(); ii++){
-          Double_t val = ratio0->GetBinContent(ii); 
+          Double_t val = ratio0->GetBinContent(ii);
           if (val > 0){if (val < ratio0Minimum){ratio0Minimum = val;}}
         }
 	Double_t zoom = 0.05;
@@ -1343,3 +1343,4 @@ void *DefineOwnColors(const char *palette="std"){
       TColor * m12 =new TColor(4012,0.667, 0.267, 0.4);
     }
   }
+}

@@ -3,29 +3,51 @@ A advanced plotting macro, that creates beautiful canvases
 
 # Usage
 The macro is used by calling the **newCanvas()** function.
-The first arguments are *TObjArray*s, that are filled with the Objects to be drawn. 
-The first object has to be a TH1, the following can be choosen freely. 
+The function takes `TObjArrays`, that have to contain a `TH1` as the first entry to draw many Root Objects on a new canvas.
+The following objects are supported:
+
+ - TH1
+ - TPaveText
+ - TLine
+ - TLegend
+ - TBox
+ - TGraph
+ - TGraphAsymErrors
+ 
+The shape of the canvas is modified by a control string.
+This is a little unelegant, but highly versitile ( `ControlString.Contains()` is used to check the string ).
+Following canvas versions are supported:
+
+ - Horizontal
+ - Square
+ - SplitHalf
+ - FullPage
+ 
+For the Axes following options are availiable:
+
+ - BinLabels
+ - CenterTitle
+ - LogX
+ - LogY
+ - RatioGridY
+ 
+Further more the option *ThisWork* will add a lable to the figure, *CMYK* will alter the colors to be more print friendly, *Thick* and *Thin* will change the linewidth and *Fill* can be used to fill the space below a line.
+By default a time stamp is created in the top right corner.
+This can be prevented with the *NoTime* option.
+
+The color and markerstyles are controled via two *Short_t* array.
+
+To include the macro into your macros use `gROOT->LoadMacro("CanvasCreator.C");`.
+And call it via 
+```
+TCanvas *cnvs = makeCanvas(array_one,array_two,"ControlString",colors,marker); 
+cnvs->Draw();
+```
+
+![alt text](example/gaus.png "Example Plot")
 
 
-Short_t colors[]={kBlue-7,kGreen-2,kBlue-7,kGreen-2};
-Short_t marker[]={21,33,7,7,1,3};
+![alt text](http://alice-figure.web.cern.ch/system/files/figures/mknichel/2018-May-29-compareMeanPt_interpol.gif)
 
-TCanvas *c1 = makeCanvas(array_one,array_two,"ControlString",colors,marker);
 
-The control string includes all possible adjustments to the result:
 
-Square
-
-FullPage
-BinLabels
-Horizontal
-SplitHalf
-CenterTitle
-LogX
-LogY
-RatioGridY
-ThisWork
-CMYK
-Thick
-Thin
-Fill
